@@ -50,10 +50,10 @@ print(zs.attr)      # 打印这个好人的属性
 zs.method()         # 调用这个好人的方法
 ```
 
-```
+```python
 result:
 
-```python
+
 ['聪明', '善良', '勤奋', '有责任心']
 这种人是好人
 ```
@@ -81,10 +81,10 @@ print(zhangsan.name)
 print(zhangsan.age)
 ```
 
-```
+```python
 result:
 
-```python
+
 张三
 18
 ```
@@ -139,10 +139,10 @@ zhangsan.method()
 zhangsan.print_name()
 ```
 
-```
+```python
 result:
 
-```python
+
 这种人是好人
 张三
 ```
@@ -183,7 +183,6 @@ function
 method
 ```
 
-
 ## 类的属性
 
 类的属性是类的特征，类的属性可以是任意类型的数据，包括整数、浮点数、字符串、列表、元组、字典、函数、模块、类等等。
@@ -208,6 +207,7 @@ print(ClassName.attr)
 cn = ClassName()
 print(cn.attr)
 ```
+
 ```python
 result:
 class attr
@@ -221,6 +221,7 @@ print(ClassName.attr)
 cn.attr = 'new class attr'
 print(cn.attr)
 ```
+
 ```python
 result:
 new class attr
@@ -247,6 +248,7 @@ class ClassName():
 cn = ClassName()
 print(cn.attr)
 ```
+
 ```python
 result:
 instance attr
@@ -258,6 +260,7 @@ cn.attr = 'new instance attr'
 print(cn.attr)
 cn.method('new instance attr')
 ```
+
 ```python
 result:
 new instance attr
@@ -266,7 +269,6 @@ new instance attr
 
 如果你认为所有实例的某个attribute都应该是一样的，那么你应该使用类属性。\
 如果你认为每个实例的某个attribute都应该是不同的，那么你应该使用实例属性。
-
 
 ## 类的继承
 
@@ -330,6 +332,7 @@ Father.character = 'gentle'     # 修改父类的属性
 print(f.character)
 print(s.character)
 ```
+
 ```python
 result:
 gentle
@@ -343,6 +346,7 @@ Father.printf = lambda self: print('i am a teacher')  # 修改父类的方法
 f.printf()
 s.printf()
 ```
+
 ```python
 result:
 i am a teacher
@@ -357,6 +361,7 @@ Father.new_attr = 'new attr'    # 增加父类的属性
 print(f.new_attr)
 print(s.new_attr)
 ```
+
 ```python
 result:
 new attr
@@ -370,6 +375,7 @@ Father.new_method = lambda self: print('new method')  # 增加父类的方法
 f.new_method()
 s.new_method()
 ```
+
 ```python
 result:
 new method
@@ -383,6 +389,7 @@ del Father.new_attr     # 删除父类的属性
 print(f.new_attr)
 print(s.new_attr)
 ```
+
 ```python
 result:
 AttributeError: 'Father' object has no attribute 'new_attr'
@@ -396,13 +403,13 @@ del Father.new_method   # 删除父类的方法
 f.new_method()
 s.new_method()
 ```
+
 ```python
 result:
 AttributeError: 'Father' object has no attribute 'new_method'
 AttributeError: 'Son' object has no attribute 'new_method'
 # 儿子也没有了方法
 ```
-
 
 ## 类的多继承
 
@@ -440,7 +447,7 @@ class Son(Father, Mother):
     def fire(self):
         print('i am a soldier')  # 儿子是个士兵
 ```
-    
+
 ```python
 # 类的实例化
 f = Father()
@@ -480,7 +487,6 @@ i am a typist   # 儿子不仅是个士兵，也可以是个打字员
 
 可以发现，当类的多继承时，如果多个父类中有相同的属性或方法，子类会继承第一个父类的属性或方法。
 
-
 ## 类的私有属性和私有方法
 
 类的私有属性和私有方法是类的一种特性，类的私有属性和私有方法使用双下划线开头，双下划线开头的属性和方法只能在类的内部访问，类的外部无法访问。
@@ -502,6 +508,7 @@ cn = ClassName()
 # 类的私有属性的访问
 print(cn.__attr)
 ```
+
 ```python
 result:
 
@@ -512,6 +519,7 @@ AttributeError: 'ClassName' object has no attribute '__attr'
 # 类的私有方法的调用
 cn.__method()
 ```
+
 ```python
 result:
 
@@ -523,7 +531,3 @@ AttributeError: 'ClassName' object has no attribute '__method'
 在Python中，int、str、list等基本数据类型也是类，它们都是object的子类，它们都有自己的属性和方法。
 
 上文中提到的"str".split()，和本文中的调用Method的方法是一样的，"str"就是str类的一个实例，split()就是str类的一个方法。
-
-
-
-
