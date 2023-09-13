@@ -2,31 +2,22 @@
 
 ## [Basic](basic/README.md)
 
-- [Grammar](basic/Grammar.md)
+- [Syntax](basic/Syntax.md) 基础语法
 
-- [Method](basic/Method/README.md)
-  - [Str_Method](basic/Method/Str_Method.md)
+- [Method](basic/Method/README.md) 方法
 
-  - [List_Method](basic/Method/List_Method.md)
+- [Class](basic/Class.md) 类的使用
 
-  - [Tuple_Method](basic/Method/Tuple_Method.md)
+  - [Module](basic/Module.md) 模块的使用
 
-  - [Dict_Method](basic/Method/Dict_Method.md)
+  - [Package](basic/Package.md) TODO
 
-  - [Set_Method](basic/Method/Set_Method.md)
+  - [Error](basic/Error.md) TODO
 
-  - [Int_Method](basic/Method/Int_Method.md)
+## Advanced
 
-  - [Float_Method](basic/Method/Float_Method.md)
+- [Special Method](advanced/Special_Method.md) 特殊方法
 
-  - [File_Method](basic/File_Method.md)
+## Anaconda
 
-  - [Function](basic/Function.md)
-
-- [Class](basic/Class.md)
-
-  - [Module](basic/Module.md)
-
-  - [Package](basic/Package.md)
-
-  - [Error](basic/Error.md)
+- [conda](conda/conda.md)

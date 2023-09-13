@@ -44,6 +44,7 @@ Aug 06 23:59:09 sea sshd[78494]: Connection reset by invalid user root 192.168.0
 ```
 
 框出重点
+
 ```bash
 User root not allowed because shell /usr/local/bin/fish does not exist
 ```
@@ -51,7 +52,6 @@ User root not allowed because shell /usr/local/bin/fish does not exist
 原因是该用户的默认shell不存在，导致无法登录
 
 使用`sudo view` 查看`/etc/passwd`文件，修改root用户的默认shell为正确路径`/usr/bin/fish`，问题解决
-
 
 ## 配置
 

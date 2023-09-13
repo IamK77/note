@@ -97,4 +97,4 @@ pip show package_name
 \
 \
 \
-传送门: [basic](Grammar.md)
+传送门: [basic](Syntax.md)

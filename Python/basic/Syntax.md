@@ -1,4 +1,4 @@
-# Grammar
+# Syntax
 
 ## variable
 
@@ -188,7 +188,7 @@ result:
 1
 2
 Traceback (most recent call last):
-  File "D:/Python/basic/basic_grammar.py", line 9, in <module>
+  File "D:/Python/basic/basic_Syntax.py", line 9, in <module>
     print(a[10])
 IndexError: list index out of range     # 索引超出范围,抛出错误,列表中没有第10个元素
 ```
@@ -353,6 +353,7 @@ True    # 小于等于
 ```
 
 注意此处的等于，python中的等于是==，而=是赋值
+
 ```python
 a = 1   # 将1赋值给变量a
 a == 1  # 判断a是否等于1
@@ -529,6 +530,7 @@ result:
 ```
 
 code1:
+
 ```python
 for _ in "hello":
     print("world")
@@ -545,6 +547,7 @@ world
 ```
 
 code2:
+
 ```python
 for i in {"key1": "value1", "key2": "value2"}:
     print(i)
@@ -558,6 +561,7 @@ key2
 ```
 
 code3:
+
 ```python
 for i in {"key1": "value1", "key2": "value2"}.values():
     print(i)
@@ -571,6 +575,7 @@ value2
 ```
 
 code4:
+
 ```python
 for i in {"key1": "value1", "key2": "value2"}.items():
     print(i)
@@ -835,13 +840,3 @@ result:
 ```python
 3
 ```
-
-
-
-
-
-
-
-
-
-
