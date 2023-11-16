@@ -13,7 +13,3 @@
 - [Int_Method](basic/Method/Int_Method.md)
 
 - [Float_Method](basic/Method/Float_Method.md)
-
-- [File_Method](basic/File_Method.md)
-
-- [Function](basic/Function.md)

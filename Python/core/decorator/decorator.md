@@ -5,6 +5,7 @@
 ### func as a parameter
 
 在python中，函数也是一个对象，可以赋值给一个变量，也可以作为参数传递给另一个函数
+
 ```python
 def double(x):
     return x * 2
@@ -250,7 +251,3 @@ result:
 Time used: 0.0
 10
 ```
-
-
-
-

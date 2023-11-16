@@ -12,7 +12,7 @@
 
   - [Package](basic/Package.md) TODO
 
-  - [Error](basic/Error.md) TODO
+- [Error](basic/Error.md) TODO
 
 ## Advanced
 
