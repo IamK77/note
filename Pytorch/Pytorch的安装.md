@@ -10,7 +10,7 @@
 
 如果正确安装了cuda，那么就可以在下图中看到，CUDA Version: 12.1.
 
-<img src=".\imgs\step1.png" alt="step1" style="zoom:80%;" />
+![step1](https://github.com/baizilw0807/note/blob/master/Pytorch/imgs/step1.png)
 
 
 
