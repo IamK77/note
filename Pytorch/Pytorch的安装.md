@@ -10,7 +10,7 @@
 
 如果正确安装了cuda，那么就可以在下图中看到，CUDA Version: 12.1.
 
-![step1](.\imgs\step1.png)
+<img src=".\imgs\step1.png" alt="step1" style="zoom:80%;" />
 
 
 
@@ -32,13 +32,13 @@
 
 Stable是稳定版本  Preview是尝鲜版本，如果不是特殊需求下载稳定版即可！
 
-![step2.1](.\imgs\step2_1.png)
+<img src=".\imgs\step2_1.png" alt="step2.1" style="zoom:80%;" />
 
 ### 直接下轮子的方式
 
 我现在网速还算比较快，所以在下载中看上去时间其实并不久，但是如果下载时间过长，那么下载程序会中断，然后前功尽弃。
 
-![step2.2](.\imgs\step2_2.png)
+<img src=".\imgs\step2_2.png" alt="step2.2" style="zoom:80%;" />
 
 我们现在来解析一下这一串下载代码
 
@@ -58,7 +58,7 @@ torch,torchvision,torchaudio 这三个是我们需要下载的东西
 
 点击torch，进去后发现东西很多：
 
-![step2.4](.\imgs\step2_4.png)
+<img src=".\imgs\step2_4.png" alt="step2.4" style="zoom:80%;" />
 
 torch-x.x.x是torch版本；
 
@@ -76,17 +76,17 @@ cp310是python版本，我的python版本为3.10；
 
 如果没什么爆红就可以了
 
-![step2.5](.\imgs\step2_5.png)
+<img src=".\imgs\step2_5.png" alt="step2.5" style="zoom:150%;" />
 
 后面以同样的方式，下载另外两个
 
 一个是torchvision
 
-![step2_7](.\imgs\step2_7.png)
+<img src=".\imgs\step2_7.png" alt="step2_7" style="zoom:150%;" />
 
 另外一个是torchaudio 
 
-![step2_6](.\imgs\step2_6.png)
+<img src=".\imgs\step2_6.png" alt="step2_6" style="zoom:150%;" />
 
 这时候可能会遇到一个问题，那就是这三个包中间的版本可能也会有冲突，这时候需要查看错误提示，提示会告诉你适配的版本是哪个，然后再按照相同的方式，去下载对应的包，方法和上面一样！可以说只要下载好了第一个，后续下载就没有什么问题了！
 
@@ -94,7 +94,7 @@ cp310是python版本，我的python版本为3.10；
 
 ## 3.检查最终是否下载成功，已经是否是GPU版本
 
-![step3](.\imgs\step3.png)
+<img src=".\imgs\step3.png" alt="step3" style="zoom:150%;" />
 
 一切检查就绪后，就可以在虚拟环境中输入python，然后导入torch包，如果torch.cuda.is_available()返回的是true，那么就代表安装成功，
 
