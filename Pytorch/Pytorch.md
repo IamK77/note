@@ -38,13 +38,13 @@
 
 Stable是稳定版本  Preview是尝鲜版本，如果不是特殊需求下载稳定版即可！
 
-![step2.1](https://github.com/baizilw0807/note/blob/master/Pytorch/imgs/step2.1.png)
+![step2.1](https://github.com/baizilw0807/note/blob/master/Pytorch/imgs/step2_1.png)
 
 ### 直接下轮子的方式
 
 我现在网速还算比较快，所以在下载中看上去时间其实并不久，但是如果下载时间过长，那么下载程序会中断，然后前功尽弃。
 
-<img src=".\imgs\step2_2.png" alt="step2.2" style="zoom:80%;" />
+![step2.2](https://github.com/baizilw0807/note/blob/master/Pytorch/imgs/step2_2.png)
 
 我们现在来解析一下这一串下载代码
 
@@ -58,13 +58,13 @@ torch,torchvision,torchaudio 这三个是我们需要下载的东西
 
 大概结构为如图
 
-![step2.2](https://github.com/baizilw0807/note/blob/master/Pytorch/imgs/step2.2.png)
+![step2.3](https://github.com/baizilw0807/note/blob/master/Pytorch/imgs/step2_3.png)
 
 常规的pytorch的下载只需要下载三个东西：torch,torchvision,torchaudio 
 
 点击torch，进去后发现东西很多：
 
-<img src=".\imgs\step2_4.png" alt="step2.4" style="zoom:80%;" />
+![step2.4](https://github.com/baizilw0807/note/blob/master/Pytorch/imgs/step2_4.png)
 
 torch-x.x.x是torch版本；
 
@@ -82,17 +82,17 @@ cp310是python版本，我的python版本为3.10；
 
 如果没什么爆红就可以了
 
-<img src=".\imgs\step2_5.png" alt="step2.5" style="zoom:150%;" />
+![step2.5](https://github.com/baizilw0807/note/blob/master/Pytorch/imgs/step2_5.png)
 
 后面以同样的方式，下载另外两个
 
 一个是torchvision
 
-<img src=".\imgs\step2_7.png" alt="step2_7" style="zoom:150%;" />
+![step2.7](https://github.com/baizilw0807/note/blob/master/Pytorch/imgs/step2_7.png)
 
 另外一个是torchaudio 
 
-<img src=".\imgs\step2_6.png" alt="step2_6" style="zoom:150%;" />
+![step2.6](https://github.com/baizilw0807/note/blob/master/Pytorch/imgs/step2_6.png)
 
 这时候可能会遇到一个问题，那就是这三个包中间的版本可能也会有冲突，这时候需要查看错误提示，提示会告诉你适配的版本是哪个，然后再按照相同的方式，去下载对应的包，方法和上面一样！可以说只要下载好了第一个，后续下载就没有什么问题了！
 
@@ -100,7 +100,7 @@ cp310是python版本，我的python版本为3.10；
 
 ## 3.检查最终是否下载成功，已经是否是GPU版本
 
-<img src=".\imgs\step3.png" alt="step3" style="zoom:150%;" />
+![step3](https://github.com/baizilw0807/note/blob/master/Pytorch/imgs/step3.png)
 
 一切检查就绪后，就可以在虚拟环境中输入python，然后导入torch包，如果torch.cuda.is_available()返回的是true，那么就代表安装成功，
 
