@@ -1,0 +1,3 @@
+[submodule "STM"]
+	path = STM
+	url = https://github.com/IamK77/STM32F10X.git
