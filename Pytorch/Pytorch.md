@@ -6,18 +6,14 @@
 
 在cmd中使用代码检测是否安装了cuda，并且查看cuda版本，后续下载pytorch的时候需要与对应的cuda版本对应.
 
-```nvidia-smi```
+```bash
+nvidia-smi
+```
 
 如果正确安装了cuda，那么就可以在下图中看到，CUDA Version: 12.1.
 
 
-
 ![step1](https://github.com/baizilw0807/note/blob/master/Resource/imgs/step1.png)
-
-
-
-
-
 
 
 ## 2.在官网中安装pytorch
@@ -48,13 +44,15 @@ Stable是稳定版本  Preview是尝鲜版本，如果不是特殊需求下载�
 
 我们现在来解析一下这一串下载代码
 
-```pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121```
+```bash
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+```
 
-torch,torchvision,torchaudio 这三个是我们需要下载的东西
+`torch`,`torchvision`,`torchaudio` 这三个是我们需要下载的东西
 
---index-url 这个后面跟了一串网址，指令就是从这个网站上下载的，所以我们之间进入的这个网站里去
+`--index-url` 这个后面跟了一串网址，指令就是从这个网站上下载的，所以我们之间进入的这个网站里去
 
-``` https://download.pytorch.org/whl/cu121```
+`https://download.pytorch.org/whl/cu121`
 
 大概结构为如图
 
