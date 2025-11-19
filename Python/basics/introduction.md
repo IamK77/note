@@ -1,6 +1,10 @@
-# Preface
+# Python 基础概念介绍
 
-[目录](/README.md)
+[返回主目录](../README.md)
+
+## 关于本部分
+
+本部分包含Python编程语言的基础概念和核心语法，适合初学者系统学习Python基础知识。
 
 ## About Python
 
@@ -97,4 +101,9 @@ pip show package_name
 \
 \
 \
-传送门: [basic](Syntax.md)
+## 学习路径
+
+- 开始学习: [语法基础](syntax.md)
+- 数据类型: [各种数据类型详解](methods/readme.md)
+- 面向对象: [类与对象](classes.md)
+- 模块系统: [模块使用指南](modules.md)
