@@ -1,0 +1,162 @@
+name: Format LaTeX Expressions
+
+on:
+  push:
+    branches:
+      - '**'
+    paths:
+      - '**.md'
+      - '**.txt'
+      - '**.py'
+      - '**.js'
+
+jobs:
+  format-latex:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Configure Git
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+    - name: Find and format LaTeX expressions
+      run: |
+        python3 << 'EOF'
+        import re
+        import os
+        import subprocess
+
+        # 获取本次提交修改的所有文件
+        result = subprocess.run(
+            ['git', 'diff', '--name-only', 'HEAD~1', 'HEAD'],
+            capture_output=True,
+            text=True
+        )
+
+        changed_files = []
+        if result.returncode == 0 and result.stdout:
+            changed_files = [f.strip() for f in result.stdout.strip().split('\n') if f.strip()]
+        else:
+            # 如果是初次提交或合并提交，检查所有受支持的文件
+            result = subprocess.run(
+                ['git', 'ls-files'],
+                capture_output=True,
+                text=True
+            )
+            if result.returncode == 0 and result.stdout:
+                all_files = [f.strip() for f in result.stdout.strip().split('\n') if f.strip()]
+                supported_exts = {'.md', '.txt', '.py', '.js'}
+                changed_files = [f for f in all_files if any(f.endswith(ext) for ext in supported_exts)]
+
+        print(f"Checking files: {changed_files}")
+
+        # 检查文件是否存在且不是二进制文件
+        valid_files = []
+        for file_path in changed_files:
+            if os.path.isfile(file_path):
+                try:
+                    with open(file_path, 'r', encoding='utf-8') as f:
+                        f.read(100)
+                    valid_files.append(file_path)
+                except:
+                    print(f"Skipping binary or unreadable file: {file_path}")
+
+        if not valid_files:
+            print("No valid text files to process")
+            exit(0)
+
+        modified_files = []
+
+        for file_path in valid_files:
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+
+                original_content = content
+
+                # 替换 $$content$$ 为 ```math content ```
+                # 确保不是已经格式化的 math 代码块
+                pattern_double = r'\$\$([^`]+?)\$\$'
+                def replace_double(match):
+                    inner = match.group(1).strip()
+                    return f'```math\n{inner}\n```'
+
+                content = re.sub(pattern_double, replace_double, content, flags=re.DOTALL)
+
+                # 替换 $content$ 为 $`content`$
+                # 跳过 $$ 块和代码块
+                pattern_single = r'\$(?![`$])([^`\n\$]+?)(?<![`\n\$])\$'
+                def replace_single(match):
+                    inner = match.group(1)
+                    return f'$`{inner}`$'
+
+                # 需要更复杂的替换逻辑，避免在代码块内替换
+                lines = content.split('\n')
+                in_code_block = False
+                code_block_marker = None
+                new_lines = []
+
+                for line in lines:
+                    # 检测代码块开始和结束
+                    if line.strip().startswith('```'):
+                        if not in_code_block:
+                            in_code_block = True
+                            code_block_marker = line.strip()
+                        else:
+                            in_code_block = False
+                            code_block_marker = None
+
+                    if not in_code_block:
+                        # 在非代码块中替换单个 $
+                        line = re.sub(pattern_single, replace_single, line)
+
+                    new_lines.append(line)
+
+                content = '\n'.join(new_lines)
+
+                # 如果内容有变化，写回文件
+                if content != original_content:
+                    with open(file_path, 'w', encoding='utf-8') as f:
+                        f.write(content)
+                    modified_files.append(file_path)
+                    print(f"Modified: {file_path}")
+
+            except Exception as e:
+                print(f"Error processing {file_path}: {e}")
+                continue
+
+        # 设置输出变量
+        with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+            if modified_files:
+                f.write(f"modified=true\n")
+                f.write(f"files={','.join(modified_files)}\n")
+            else:
+                f.write(f"modified=false\n")
+        EOF
+
+    - name: Commit changes
+      run: |
+        git add -A
+        if ! git diff --staged --quiet; then
+          git commit -m "chore: auto-format LaTeX expressions
+
+          🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+          Co-Authored-By: Claude <noreply@anthropic.com>"
+          git push
+        else
+          echo "No changes to commit"
+        fi
+      if: steps.format-latex.outputs.modified == 'true'
